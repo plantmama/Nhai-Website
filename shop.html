@@ -130,7 +130,7 @@
             </a>
         </div>
         <div class="shop-post">
-            <a href="fish.html">
+            <a href="fishes.html">
                 <img src="images/fish.jpg" alt="Fish">
                 <h2>Shop our exotic fishies! </h2>
                 <p>Explore our variety of fish.</p>
@@ -173,5 +173,33 @@
         });
     });
 </script>
+<script>
+    document.querySelectorAll('.shop-post').forEach(post => {
+        post.addEventListener('click', function() {
+            // Remove 'clicked from all posts
+            document.querySelectorAll('.shop-post').forEach(p => p.classList.remove('clicked'));
+
+            // Add 'clicked' class to the clicked post
+            this.classList.add('clicked');
+
+            // Fade out other posts
+            document.querySelectorAll('.shop-post').forEach(p => {
+                if (p !== this) {
+                    p.style.opacity = '0.3'; // Fade out other posts
+                }
+            });
+
+            // Reset opacity of all posts when clicked post loses focus
+            document.querySelectorAll('.shop-post').forEach(p => {
+                p.addEventListener('transitionend', () => {
+                    if (p !== this) {
+                        p.style.opacity = '1'; // Reset opacity
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
