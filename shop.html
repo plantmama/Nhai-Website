@@ -8,7 +8,7 @@
     <style>
         body {
             margin: 0;
-            padding: 0; /* Remove default padding */
+            padding: 0; 
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -45,58 +45,57 @@
         .nav-link:hover {
             background-color: #06451c; 
         }
-        .header-title {
+    .header-title {
             font-size: 20px;
             margin: 0;
         }
 
-        /* Grid container and item styles */
-        .shop-container {
+        /* Grid container  */
+    .shop-container {
         font-family: Arial, Helvetica, sans-serif;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 7px; /* Set the same gap for both vertical and horizontal */
+        gap: 7px; /* Same gap distance vertical and horizontal */
         padding: 20px;
-        max-width: 800px; /* Adjust to fit within center margin */
+        max-width: 800px; /*Fits within center margin */
         width: 100%;
         margin: 0 auto; /* Center the container */
         box-sizing: border-box; /* Include padding in the width */
         }
 
-
     .shop-post {
-    background-color: #ad4545;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    height: auto; 
-    max-width: 320px; 
-    padding: 5px; /* Padding inside post */
-}
+        background-color: #ad4545;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        height: auto; 
+        max-width: 320px; 
+        padding: 5px; /* Padding inside post */
+    }
 
-.shop-post img {
-    border-radius: 15px;
-    width: 100%;
-    height: 250px; /* Make image larger */
-    object-fit: cover; 
-    border-bottom: 0.5px solid #ddd; /* Thinner border */
-}
+    .shop-post img {
+        border-radius: 15px;
+        width: 100%;
+        height: 250px; /* Make image larger */
+        object-fit: cover; 
+        border-bottom: 0.5px solid #ddd; /* Thinner border */
+        }
 
-        .shop-post h2 {
-            margin: 15px 0;
-        }
-        .shop-post p {
-            padding: 0 15px 15px;
-        }
-        .shop-post:hover {
-            transform: scale(1.05);
-        }
+    .shop-post h2 {
+        margin: 15px 0;
+    }
+    .shop-post p {
+        padding: 0 15px 15px;
+    }
+    .shop-post:hover {
+        transform: scale(1.05);
+    }
     </style>
 </head>
 <body>
@@ -189,11 +188,11 @@
                 }
             });
 
-            // Reset opacity of all posts when clicked post loses focus
+            // Resets opacity of all posts
             document.querySelectorAll('.shop-post').forEach(p => {
                 p.addEventListener('transitionend', () => {
                     if (p !== this) {
-                        p.style.opacity = '1'; // Reset opacity
+                        p.style.opacity = '1'; // Resets opacity
                     }
                 });
             });

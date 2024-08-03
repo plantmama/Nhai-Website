@@ -8,10 +8,11 @@
 </head>
 <body>
     <header>
-        <a class="nav_link" href="template.html"><h1>Nhai's Ponyo Shop</h1></a>
-        <nav class="nav-container">
-            <a class="nav_link" href="form.html">Form</a>
-        </nav>
+        <a class="nav_link" href="template.html"><h1>Nhái's Ponyo Shop</h1></a>
+        <nav class="nav-container"</nav>
+        <a class="nav-link" href="form.html">FORM</a>
+        <a class="nav-link" href="shop.html">SHOP</a>
+            </nav>
     </header> 
     <div class="container">
         <h1>Contact Us</h1>
@@ -36,7 +37,7 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
             </div>
-            <!-- Preferred Contact Method -->
+            <!-- Preferred Contact -->
             <div class="form-group">
                 <label>Preferred Contact Method:</label>
                 <div class="radio-group">
@@ -58,7 +59,7 @@
     </div>
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); 
 
             const name = document.getElementById('name').value;
             const contactMethod = document.querySelector('input[name="contactMethod"]:checked').value;
@@ -68,14 +69,14 @@
             messageArea.className = 'message-area success';
             messageArea.innerHTML = `Thank you ${name} for showing interest in my Ponyo shop. We will be reaching back out to you through ${contactMethod}. Talk to you soon!`;
 
-            // Optionally, clear the form inputs after a short delay to allow message display
+  
             setTimeout(() => {
                 document.getElementById('contactForm').reset();
             }, 5000);
         });
 
         document.getElementById('contactForm').addEventListener('reset', function(event) {
-            event.preventDefault(); // Prevent default form reset
+            event.preventDefault(); 
 
             // Clear message area
             const messageArea = document.getElementById('messageArea');
@@ -84,7 +85,7 @@
             messageArea.innerHTML = '';
         });
 
-        // Phone Number Script
+        // Phone Number S
         document.getElementById('phone').addEventListener('input', function (e) {
             let value = e.target.value;
             if (value.length > 9) {
