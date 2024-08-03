@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <a class="nav_link" href="template.html"><h1>Nhai's Ponyo Shop</h1></a>
+        <nav class="nav-container">
+            <a class="nav_link" href="form.html">Form</a>
+        </nav>
+    </header> 
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="phone" id="phone" required pattern="\d{10,12}" maxlength="11">
+            </div>
+            <!-- Message -->
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <!-- Preferred Contact Method -->
+            <div class="form-group">
+                <label>Preferred Contact Method:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="contactMethod" value="text" required>Text Message
+                    </label>
+                    <label>
+                        <input type="radio" name="contactMethod" value="email">Email
+                    </label>
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <div id="messageArea" class="message-area" style="display: none;"></div>
+    </div>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const contactMethod = document.querySelector('input[name="contactMethod"]:checked').value;
+            const messageArea = document.getElementById('messageArea');
+
+            messageArea.style.display = 'block';
+            messageArea.className = 'message-area success';
+            messageArea.innerHTML = `Thank you ${name} for showing interest in my Ponyo shop. We will be reaching back out to you through ${contactMethod}. Talk to you soon!`;
+
+            // Optionally, clear the form inputs after a short delay to allow message display
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+            }, 5000);
+        });
+
+        document.getElementById('contactForm').addEventListener('reset', function(event) {
+            event.preventDefault(); // Prevent default form reset
+
+            // Clear message area
+            const messageArea = document.getElementById('messageArea');
+            messageArea.style.display = 'none';
+            messageArea.className = '';
+            messageArea.innerHTML = '';
+        });
+
+        // Phone Number Script
+        document.getElementById('phone').addEventListener('input', function (e) {
+            let value = e.target.value;
+            if (value.length > 9) {
+                e.target.value = value.slice(0, 11);
+            }
+        });
+    </script>
+</body>
+</html>
