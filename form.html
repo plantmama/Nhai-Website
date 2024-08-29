@@ -12,32 +12,40 @@
         <nav class="nav-container"</nav>
         <a class="nav-link" href="form.html">FORM</a>
         <a class="nav-link" href="shop.html">SHOP</a>
+<<<<<<< HEAD
+=======
+        <a class="nav-link" href="gallery.html">GALLERY PHOTOS ( NEW! ) </a>
+>>>>>>> 737284a (REWROTE COMMENTS FOR BETTER LEGIBILITY, ADDED A TERRIBLE GALLERY TO FIX LATER)
             </nav>
     </header> 
     <div class="container">
         <h1>Contact Us</h1>
         <form id="contactForm">
-            <!-- Name -->
+            <!-- NAME -->
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <!-- Email -->
+            <!-- EMAIL -->
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" required>
             </div>
-            <!-- Phone Number -->
+            <!-- PHONE NUMBER -->
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
                 <input type="text" name="phone" id="phone" required pattern="\d{10,12}" maxlength="11">
             </div>
-            <!-- Message -->
+            <!-- MESSAGE -->
             <div class="form-group">
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
             </div>
+<<<<<<< HEAD
             <!-- Preferred Contact -->
+=======
+            <!-- PREFFERED CONTACT -->
+>>>>>>> 737284a (REWROTE COMMENTS FOR BETTER LEGIBILITY, ADDED A TERRIBLE GALLERY TO FIX LATER)
             <div class="form-group">
                 <label>Preferred Contact Method:</label>
                 <div class="radio-group">
@@ -49,7 +57,7 @@
                     </label>
                 </div>
             </div>
-            <!-- Buttons -->
+            <!-- RADIO BUTTONS -->
             <div class="buttons">
                 <button type="submit">Submit</button>
                 <button type="reset">Reset</button>
@@ -78,14 +86,18 @@
         document.getElementById('contactForm').addEventListener('reset', function(event) {
             event.preventDefault(); 
 
-            // Clear message area
+            // RESETS MESSAGE
             const messageArea = document.getElementById('messageArea');
             messageArea.style.display = 'none';
             messageArea.className = '';
             messageArea.innerHTML = '';
         });
 
+<<<<<<< HEAD
         // Phone Number S
+=======
+        // PHONE NUMBER
+>>>>>>> 737284a (REWROTE COMMENTS FOR BETTER LEGIBILITY, ADDED A TERRIBLE GALLERY TO FIX LATER)
         document.getElementById('phone').addEventListener('input', function (e) {
             let value = e.target.value;
             if (value.length > 9) {

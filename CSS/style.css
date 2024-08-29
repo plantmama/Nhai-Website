@@ -42,7 +42,6 @@ header nav {
 }
 
 .nav_link {
-    /* Navbar hyperlinks */
     color: white; 
     text-decoration: none; 
     font-size: 25px;
@@ -50,12 +49,12 @@ header nav {
 }
 
 .nav_link:visited {
-    /* Nav links after click */
+    /* AFTER CLICK */
     color: white; 
 }
 
 .nav_link:active {
-    /* Nav links while clicked */
+    /* WHILE CLICKED */
     color: rgb(182, 17, 17); 
 }
 
@@ -121,7 +120,7 @@ header nav {
     color: red;
 }
 
-/* Tablets and small monitors */
+/* Tablets and small  monitors */
 @media (max-width: 1024px) {
     header a.nav_link h1 {
         float: none;
@@ -145,7 +144,7 @@ header nav {
     }
 }
 
-/* Large monitors */
+/* LARGE MONITORS */
 @media (min-width: 1440px) {
     header a.nav_link h1 {
         float: left; 
@@ -168,15 +167,14 @@ header nav {
     }
 }
 
-/* CSS */
 .shop-post {
     background-color: #ad4545;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
-    transition: opacity 0.3s ease-in-out; /* Opacity FADE */
-    transition: transform 0.3s ease-in, opacity 0.7s ease-in; /* EAse-in transition for opacity */
+    transition: opacity 0.3s ease-in-out; /* OPACITY FADE */
+    transition: transform 0.3s ease-in, opacity 0.7s ease-in; /* EASE IN TRANSITION FOR OPACITY */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -187,11 +185,11 @@ header nav {
 }
 
 .fade-out {
-    opacity: 0.3; /* Fade out effect */
+    opacity: 0.3; /* FADE OUTEFFECT*/
 }
 
 .shop-post.clicked {
-    transform: scale(1.1); /* Slightly enlarges post when clicked */
+    transform: scale(1.1); /* Slightly enlarged post when clicked */
     opacity: 0.7; /* Fade out effect */
 }
 

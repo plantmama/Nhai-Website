@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Image</title>
+    <style>
+        body, h1 {
+            margin: 0;
+            padding: 0;
+            background-image: url(images/ponyojellyfishbackgroundimage.jpg);
+        }
+
+        header {
+            display: flex; /*FLEX ALIGN ITEMS*/
+            align-items: center; /* CENTERS VERTICALLY */
+            background-color: transparent;
+            color: #94722e;
+            font-size: 20pt; 
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        #logo {
+            width: 70px; 
+            height: auto; 
+            margin-right: 10px; /* MARGIN BETWEEN TEXT AND IMGS */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        /* TITLE */
+        h1 {
+            font-size: 24px; 
+            color: darkblue;
+        }
+
+        /* NAVIGATION */
+        #nav {
+            display: none; /* HIDES NAV */
+            margin-top: 20px;
+            background-color: lightblue;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        #nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #nav li {
+            margin: 5px 0;
+        }
+
+        #nav a {
+            text-decoration: none;
+            color: darkblue;
+        }
+
+        #nav a:hover {
+            color: darkred;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightblue;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: darkblue;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px;
+            border-radius: 8px;
+            width: auto;
+            max-width: 800px;
+            margin: 20px auto; /* CENTER CONTAINER  */
+            text-align: center; /* CENTER TEXT OR IMG */
+        }
+
+        .gallery img {
+            width: 300px; 
+            height: 300px; 
+            object-fit: cover; 
+            display: none;
+            border-radius: 8px;
+        }
+        
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .thumbnails img {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
+            margin: 0 10px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+        }
+        .thumbnails img.active {
+            border-color: #94722e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo" id="logo"> 
+        <a class="nav"><h4>Double- Click Menu! </h4> </a>
+    </header>
+    
+    <div id="nav">
+        <nav>
+            <ul class="nav-menu">
+                <li><a class="nav" href="gallery.html">Gallery</a></li>
+                <li><a class="nav" href="form.html">Contact us</a></li>
+                <li><a class="nav" href="shop.html">SHOP OUR STOP! </a></li>
+                <li class="dropdown">
+                    <a class="nav" href="#">UNDER THE TABLE SHHH</a>
+                    <ul class="dropdown-content">
+                        <li><a href="images/cendol.png">Cendol</a></li>
+                        <li><a href="images/esBuah.png">Es Buah</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="container gallery">
+        <img id="img1" src="images/ramen.gif" alt="ramen" class="active">
+        <img id="img2" src="images/ponyoham.gif" alt="ham">
+        <img id="img3" src="images/ponyotea.gif" alt="tea">
+        <img id="img4" src="images/fujicoat.jpg" alt="fujimotos coat">
+        <img id="img5" src="images/sosuke.png" alt="sosuke">
+        <img id="img6" src="images/ponyo.png" alt="ponyo">
+        <img id="img7" src="images/fujispray.gif" alt="fujimoto fit">
+    </div>
+
+    <div class="container thumbnails">
+        <img src="images/ramen.gif" alt="ramen" data-id="img1" class="active">
+        <img src="images/ponyoham.gif" alt="ham" data-id="img2">
+        <img src="images/ponyotea.gif" alt="tea" data-id="img3">
+        <img src="images/fujicoat.jpg" alt="coat" data-id="img4">
+        <img src="images/sosuke.png" alt="sosuke" data-id="img5">
+        <img src="images/ponyo.png" alt="ponyo" data-id="img6">
+        <img src="images/fujispray.gif" alt="martabakManis" data-id="img7">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+        $('.gallery img:first').show();
+    
+    $('.thumbnails img').on('click', function(){
+        // REMOVES ACTIVE CLASS
+        $('.thumbnails img').removeClass('active');
+        // ADDS CLASS WHEN CLICKED
+        $(this).addClass('active');
+        // HIDES OTHER IMAGES NOT CLICKED
+        $('.gallery img').hide();
+        // MATCHES THUMBNAIL AND IMAGE
+        $('#' + $(this).data('id')).fadeIn();
+    });
+
+    // DDLB CLICK LOGO
+    $('#logo').on('dblclick', function() {
+        $('#nav').slideDown(); //DROP DOWN MENU
+    });
+
+    // HOVER OVER DROP DOWN
+    $('.dropdown').hover(
+        function() {
+            $(this).children('.dropdown-content').stop(true, true).slideDown(200);
+        },
+        function() {
+            $(this).children('.dropdown-content').stop(true, true).slideUp(200);
+        }
+    );
+});
+
+    </script>
+</body>
+</html>

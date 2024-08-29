@@ -23,24 +23,24 @@
             text-align: center;
             background-color: #ad4545;
             padding: 20px 0;
-            padding-left: 0.5in; /* Moves the title half an inch to the right */
+            padding-left: 0.5in; /* MOVES TITLE TO THE RIGHT*/
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .nav-bar {
             display: flex;
             justify-content: center;
-            gap: 20px; /* Space between nav links */
+            gap: 20px; /* SPACE BETWEEN NAV LINKS */
             margin-top: 10px;
         }
         .nav-link {
             font-family: Helvetica, sans-serif;
             color: white;
             text-decoration: none;
-            font-size: 16px; /* Size of nav links */
-            padding: 5px; /* Padding around nav links */
-            border: 1px solid #fff; /* Border around nav links */
+            font-size: 16px; 
+            padding: 5px; /* PADDING AROUND NAV LINKDS */
+            border: 1px solid #fff; /* BORDER AROUND NAV LINKS */
             border-radius: 5px; 
-            transition: background-color 0.3s; /* Little click color*/
+            transition: background-color 0.3s; /* CLICK COLOR*/
         }
         .nav-link:hover {
             background-color: #06451c; 
@@ -50,42 +50,42 @@
             margin: 0;
         }
 
-        /* Grid container  */
-    .shop-container {
+        /* Grid container and item styles */
+        .shop-container {
         font-family: Arial, Helvetica, sans-serif;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 7px; /* Same gap distance vertical and horizontal */
+        gap: 7px; /* Set the same gap for both vertical and horizontal */
         padding: 20px;
-        max-width: 800px; /*Fits within center margin */
+        max-width: 800px; /* Adjust to fit within center margin */
         width: 100%;
-        margin: 0 auto; /* Center the container */
-        box-sizing: border-box; /* Include padding in the width */
+        margin: 0 auto; /* CENTERING CONTAINER */
+        box-sizing: border-box; /* PADDING IN WIDTH*/
         }
 
     .shop-post {
-        background-color: #ad4545;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        text-align: center;
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
-        height: auto; 
-        max-width: 320px; 
-        padding: 5px; /* Padding inside post */
-    }
+    background-color: #ad4545;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: auto; 
+    max-width: 320px; 
+    padding: 5px; /* Padding inside post */
+}
 
-    .shop-post img {
-        border-radius: 15px;
-        width: 100%;
-        height: 250px; /* Make image larger */
-        object-fit: cover; 
-        border-bottom: 0.5px solid #ddd; /* Thinner border */
-        }
+.shop-post img {
+    border-radius: 15px;
+    width: 100%;
+    height: 250px; /* Make image larger */
+    object-fit: cover; 
+    border-bottom: 0.5px solid #ddd; /* Thinner border */
+}
 
     .shop-post h2 {
         margin: 15px 0;
@@ -104,6 +104,7 @@
         <nav class="nav-bar">
             <a class="nav-link" href="form.html">FORM</a>
             <a class="nav-link" href="shop.html">SHOP</a>
+            <a class="nav-link" href="gallery.html">GALLERY PHOTOS ( NEW!! )</a>
         </nav>
     </header> 
     <div class="shop-container">
@@ -175,24 +176,24 @@
 <script>
     document.querySelectorAll('.shop-post').forEach(post => {
         post.addEventListener('click', function() {
-            // Remove 'clicked from all posts
+            // REMOVES CLICK OR HOVER FROM OTHER POST
             document.querySelectorAll('.shop-post').forEach(p => p.classList.remove('clicked'));
 
-            // Add 'clicked' class to the clicked post
+            // ACTIVE CLICK
             this.classList.add('clicked');
 
-            // Fade out other posts
+            // FADE OUT OTHER POSTS
             document.querySelectorAll('.shop-post').forEach(p => {
                 if (p !== this) {
-                    p.style.opacity = '0.3'; // Fade out other posts
+                    p.style.opacity = '0.3'; // FADE OUT OTHER POSTS
                 }
             });
 
-            // Resets opacity of all posts
+            // Reset opacity of all posts when clicked post loses focus
             document.querySelectorAll('.shop-post').forEach(p => {
                 p.addEventListener('transitionend', () => {
                     if (p !== this) {
-                        p.style.opacity = '1'; // Resets opacity
+                        p.style.opacity = '1'; // Reset opacity
                     }
                 });
             });

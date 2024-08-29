@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Subscription Form</title>
+    <link rel="stylesheet" href="CSS/cancel.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url(images/sad.jpg); 
+            background-size: cover;
+            background-attachment: fixed;
+            box-sizing: border-box; 
+            height: 100vh;
+            position: relative; 
+            overflow: hidden; /* HIDDEN SCROLLBAR */
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            background-color: #ad4545;
+            padding: 20px 0;
+            padding-left: 0.5in; /* MOVES TO THE RIGHT */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            font-family: Helvetica, sans-serif;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #fff;
+            border-radius: 5px; 
+            transition: background-color 0.3s; /* CLICK COLOR   */
+        }
+
+        .nav-link:hover {
+            background-color: #06451c; 
+        }
+
+        .header-title {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.5); 
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px; 
+            width: 100%;
+            margin: 20px auto;
+            color: black;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: black;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: black; 
+        }
+
+        .radio-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: black; /* BLACK RADIO COLOR */
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .buttons button[type="reset"] {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .message-area {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .message-area.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .message-area.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="nav_link" href="template.html"><h1 class="header-title">Nhái's Ponyo Shop</h1></a>
+        <nav class="nav-container">
+            <a class="nav-link" href="form.html">FORM</a>
+            <a class="nav-link" href="shop.html">SHOP</a>
+            <a class="nav-link" href="gallery.html">GALLERY PHOTOS ( NEW!!) </a>
+
+        </nav>
+    </header> 
+
+    <div class="container">
+        <h1>Reason for Canceling:</h1>
+        <form id="cancelForm">
+            <!-- REASON FOR CANCELLING -->
+            <div class="form-group">
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="reason" value="unmetValue" required>Unmet value from products
+                    </label>
+                    <label>
+                        <input type="radio" name="reason" value="can'tAfford">Can't afford it right now
+                    </label>
+                    <label>
+                        <input type="radio" name="reason" value="paymentFailures">Payment failures
+                    </label>
+                    <label>
+                        <input type="radio" name="reason" value="serviceNotNeeded">Service not needed
+                    </label>
+                    <label>
+                        <input type="radio" name="reason" value="dissatisfied">Dissatisfied with products
+                    </label>
+                    <br>
+                </div>
+            </div>
+            <!-- RADIO BUTTONS -->
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <div id="messageArea" class="message-area" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('cancelForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            alert('We are sorry to see you go'); // DISPLAY ALERT - why is this not working
+            
+
+            const reason = document.querySelector('input[name="reason"]:checked').value;
+            const messageArea = document.getElementById('messageArea');
+
+            messageArea.style.display = 'block';
+            messageArea.className = 'message-area success';
+            messageArea.innerHTML = `We are sorry to see you go! Please reach out again if there's
+            anything we can do to keep you!
+            Your subscription has been canceled for the following reason: ${reason}.`;
+
+            setTimeout(() => {
+                document.getElementById('cancelForm').reset();
+            }, 5000);
+        });
+
+        document.getElementById('cancelForm').addEventListener('reset', function(event) {
+            event.preventDefault(); 
+
+            // RESETS MESSAGE
+            const messageArea = document.getElementById('messageArea');
+            messageArea.style.display = 'none';
+            messageArea.className = '';
+            messageArea.innerHTML = '';
+        });
+    </script>
+</body>
+</html>
